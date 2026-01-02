@@ -33,32 +33,29 @@ export default function Home() {
         <div className="font-body">
           <h1 className="text-center text-6xl font-bold font-display game-title">Help</h1>
           <p>
-            Welcome to AI town. AI town supports both anonymous <i>spectators</i> and logged in{' '}
-            <i>interactivity</i>.
+            Welcome to Gas Town Sim - a visual representation of your Claude Code orchestration.
           </p>
-          <h2 className="text-4xl mt-4">Spectating</h2>
+          <h2 className="text-4xl mt-4">Agents</h2>
           <p>
-            Click and drag to move around the town, and scroll in and out to zoom. You can click on
-            an individual character to view its chat history.
+            <b>Mayor</b> - Coordinates work across rigs<br/>
+            <b>Witness</b> - Monitors workers for problems<br/>
+            <b>Refinery</b> - Processes the merge queue<br/>
+            <b>Polecats</b> - Workers executing tasks<br/>
+            <b>Deacon</b> - Manages agent lifecycles<br/>
+            <b>Overseer</b> - Human representative
           </p>
-          <h2 className="text-4xl mt-4">Interactivity</h2>
+          <h2 className="text-4xl mt-4">Navigation</h2>
           <p>
-            If you log in, you can join the simulation and directly talk to different agents! After
-            logging in, click the "Interact" button, and your character will appear somewhere on the
-            map with a highlighted circle underneath you.
+            Click and drag to move around the town. Scroll to zoom. Click on
+            an agent to view their status and recent conversations.
           </p>
-          <p className="text-2xl mt-2">Controls:</p>
-          <p className="mt-4">Click to navigate around.</p>
-          <p className="mt-4">
-            To talk to an agent, click on them and then click "Start conversation," which will ask
-            them to start walking towards you. Once they're nearby, the conversation will start, and
-            you can speak to each other. You can leave at any time by closing the conversation pane
-            or moving away. They may propose a conversation to you - you'll see a button to accept
-            in the messages panel.
+          <h2 className="text-4xl mt-4">Real-time Events</h2>
+          <p>
+            Connect to your Gas Town installation to see agents react to real events:
+            slings, spawns, merges, handoffs, and more.
           </p>
           <p className="mt-4">
-            AI town only supports {MAX_HUMAN_PLAYERS} humans at a time. If you're idle for five
-            minutes, you'll be automatically removed from the simulation.
+            Gas Town supports {MAX_HUMAN_PLAYERS} human observers at a time.
           </p>
         </div>
       </ReactModal>
@@ -74,11 +71,11 @@ export default function Home() {
 
       <div className="w-full lg:h-screen min-h-screen relative isolate overflow-hidden lg:p-8 shadow-2xl flex flex-col justify-start">
         <h1 className="mx-auto text-4xl p-3 sm:text-8xl lg:text-9xl font-bold font-display leading-none tracking-wide game-title w-full text-left sm:text-center sm:w-auto">
-          AI Town
+          Gas Town
         </h1>
 
         <div className="max-w-xs md:max-w-xl lg:max-w-none mx-auto my-4 text-center text-base sm:text-xl md:text-2xl text-white leading-tight shadow-solid">
-          A virtual town where AI characters live, chat and socialize.
+          Watch your AI agents coordinate, work, and ship code.
           {/* <Unauthenticated>
             <div className="my-1.5 sm:my-0" />
             Log in to join the town

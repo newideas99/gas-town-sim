@@ -10,6 +10,34 @@ import { Player } from '../../convex/aiTown/player';
 import { GameId } from '../../convex/aiTown/ids';
 import { ServerGame } from '../hooks/serverGame';
 
+function getAgentRole(name: string): string {
+  const roles: Record<string, string> = {
+    'Mayor': 'Coordinator',
+    'Witness': 'Monitor', 
+    'Refinery': 'Merge Queue',
+    'Deacon': 'Daemon',
+    'Overseer': 'Human Rep',
+    'Polecat-1': 'Worker',
+    'Polecat-2': 'Worker',
+    'Polecat-3': 'Worker',
+  };
+  return roles[name] || 'Agent';
+}
+
+function getRoleBadgeColor(name: string): string {
+  const colors: Record<string, string> = {
+    'Mayor': 'bg-purple-600 text-white',
+    'Witness': 'bg-blue-600 text-white',
+    'Refinery': 'bg-orange-600 text-white',
+    'Deacon': 'bg-gray-600 text-white',
+    'Overseer': 'bg-green-600 text-white',
+    'Polecat-1': 'bg-yellow-600 text-black',
+    'Polecat-2': 'bg-yellow-600 text-black',
+    'Polecat-3': 'bg-yellow-600 text-black',
+  };
+  return colors[name] || 'bg-gray-500 text-white';
+}
+
 export default function PlayerDetails({
   worldId,
   engineId,
@@ -219,6 +247,18 @@ export default function PlayerDetails({
           <h2 className="bg-brown-700 text-base sm:text-lg text-center">
             {player.activity.description}
           </h2>
+        </div>
+      )}
+      {playerDescription?.name && (
+        <div className="mt-4 flex gap-2 flex-wrap">
+          <span className={`px-2 py-1 rounded text-xs font-bold ${getRoleBadgeColor(playerDescription.name)}`}>
+            {getAgentRole(playerDescription.name)}
+          </span>
+          {player.activity && player.activity.until > Date.now() && (
+            <span className="px-2 py-1 rounded text-xs bg-yellow-600 text-white">
+              Working
+            </span>
+          )}
         </div>
       )}
       <div className="desc my-6">
