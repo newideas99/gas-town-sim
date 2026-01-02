@@ -11,6 +11,16 @@ export default defineSchema({
     type: v.union(v.literal('background'), v.literal('player')),
   }),
 
+  // Gas Town events from the orchestrator
+  gastownEvents: defineTable({
+    ts: v.number(),
+    eventTs: v.string(),
+    type: v.string(),
+    actor: v.string(),
+    rig: v.optional(v.string()),
+    payload: v.any(),
+  }).index('byTs', ['ts']),
+
   messages: defineTable({
     conversationId,
     messageUuid: v.string(),
